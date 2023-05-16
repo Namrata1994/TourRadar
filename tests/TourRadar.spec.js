@@ -1,6 +1,6 @@
 import { test, expect, KeyboardEvent } from '@playwright/test';
 
-test.skip('Registeration', async ({ page }) => {
+test('Registeration', async ({ page }) => {
     await page.goto('https://www.tourradar.com/d/europe');
 
     await page.getByRole('listitem').filter({ hasText: 'My Account' }).locator('div').first().click();
@@ -18,7 +18,7 @@ test.skip('Registeration', async ({ page }) => {
 
 });
 
-test.skip('Valid Login', async ({ page }) => {
+test('Valid Login', async ({ page }) => {
     await page.goto('https://www.tourradar.com/d/europe');
     await page.getByRole('listitem').filter({ hasText: 'My Account' }).locator('div').first().click();
     await page.getByRole('link', { name: 'Log In', exact: true }).click();
@@ -39,7 +39,7 @@ test.skip('Valid Login', async ({ page }) => {
     // console.log(`Logged in as: ${loggedInUserName}`);
 });
 
-test.skip('Invalid Login', async ({ page }) => {
+test('Invalid Login', async ({ page }) => {
     await page.goto('https://www.tourradar.com/d/europe');
     await page.getByRole('listitem').filter({ hasText: 'My Account' }).locator('div').first().click();
     await page.getByRole('link', { name: 'Log In', exact: true }).click();
@@ -53,7 +53,7 @@ test.skip('Invalid Login', async ({ page }) => {
     await expect (page.locator('#message-sign-in')).toBeVisible();
 });
 
-test.skip('ForgotPassword', async ({ page }) => {
+test('ForgotPassword', async ({ page }) => {
     await page.goto('https://www.tourradar.com/d/europe');
     await page.getByRole('listitem').filter({ hasText: 'My Account' }).locator('div').first().click();
     await page.getByRole('link', { name: 'Log In', exact: true }).click();
@@ -68,7 +68,7 @@ test.skip('ForgotPassword', async ({ page }) => {
     await expect (page.getByRole('heading', { name: 'Please, check your email' })).toBeVisible();
 });
 
-test.skip('Update User Profile', async ({ page }) => {
+test('Update User Profile', async ({ page }) => {
     await page.goto('https://www.tourradar.com/d/europe');
     await page.getByRole('listitem').filter({ hasText: 'My Account' }).locator('div').first().click();
     await page.getByRole('link', { name: 'Log In', exact: true }).click();
